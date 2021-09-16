@@ -1,58 +1,100 @@
-class UserService:
+from typing import overload, Union
+
+
+# 类的声明
+class Store:
     name: str
 
     def __init__(self, name: str):
-        print("UserService init")
+        print("Store init")
         self.name = name
 
     def __call__(self, todo: str):
-        print("UserService call")
+        print("Store call")
         print(todo)
 
     def __del__(self):
-        print("UserService del")
+        print("Store del")
 
     def get_name(self) -> str:
         return self.name
 
 
-user_service = UserService("Aniya Ford")
-user_service("run")
-user_name = user_service.get_name()
-print(user_name)
+store = Store("Game Store")
+store("run")
+store_name = store.get_name()
+print(store_name)
 
 
-# 继承、重写
-class TUserService(UserService):
+# 类的继承与函数重写
+class PhysicalStore(Store):
     def get_name(self) -> str:
-        print("TUserService get_name")
+        print("PhysicalStore get_name")
         return super().get_name()
 
 
-user_service = TUserService("Tom")
-user_name = user_service.get_name()
-print(user_name)
+store = PhysicalStore("Game World")
+store_name = store.get_name()
+print(store_name)
 
 
-# 构造参数
-class IdentUserService(UserService):
+# 类的继承之构造函数
+class CloudStore(Store):
     tag: str
 
     def __init__(self, name: str, tag: str):
-        super(IdentUserService, self).__init__(name)
+        super(CloudStore, self).__init__(name)
         self.tag = tag
 
 
-user_service = IdentUserService("Tom", "lib")
-print(user_service.tag)
+store = CloudStore("Steam", "lib")
+print(store.tag)
+
+
+# 函数重载
+class UserService:
+    @overload
+    def get(self, uid: int): ...
+
+    @overload
+    def get(self, name: str): ...
+
+    def get(self, u: Union[int, str]):
+        if type(u) == int:
+            print(f"User id is {u}")
+        else:
+            print(f"User name is {u}")
+
+
+user_service = UserService()
+user_service.get(1)
+user_service.get("admin")
+
+
+# 判断或获取对象中指定的属性
+class SomeClass:
+    word = "Hello World!"
+
+    def hi(self):
+        print(self.word)
+
+    def __init__(self):
+        print(hasattr(self, "word"))
+        print(hasattr(self, "hi"))
+
+        print(getattr(self, "word"))
+        print(getattr(self, "hi"))
+
+
+some_class = SomeClass()
 
 
 # 在父类中调用子类的方法
 class Foo:
     def process(self, name: str):
-        if hasattr(self, name):
+        try:
             getattr(self, name)()
-        else:
+        except AttributeError:
             print(f"Notfound attr {name}")
 
 
