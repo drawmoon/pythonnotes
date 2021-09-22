@@ -29,7 +29,7 @@ def hey():
 hey()
 
 
-# 委托
+# 回调函数
 def greet(make_greet):
     make_greet()
 
@@ -46,7 +46,7 @@ greet(en_greet)
 greet(cn_greet)
 
 
-# 匿名委托
+# 匿名函数
 greet(lambda: print("こんにちは!"))
 
 
