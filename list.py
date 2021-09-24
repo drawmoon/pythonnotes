@@ -143,11 +143,6 @@ deepcopied_list[2][0] = "Reef Salinas"
 print("original val:", original_list, "deepcopied val:", copied_list)
 
 
-# 列表生成式
-digit_list = [i for i in range(10)]
-print(digit_list)
-
-
 # 集合去重
 repeated_list = [1, 1, 2, 3, 4]
 print(list(set(repeated_list)))
@@ -158,23 +153,28 @@ class User:
     id: str
     name: str
     age: int
+    locked: bool
 
-    def __init__(self, id: str, name: str, age: int) -> None:
+    def __init__(self, id: str, name: str, age: int, locked: bool) -> None:
         self.id = id
         self.name = name
         self.age = age
+        self.locked = locked
 
 
 user_list = [
-    User("1", "Elysha Montes", 31),
-    User("2", "Amman Rutledge", 33)
+    User("1", "Elysha Montes", 31, True),
+    User("2", "Amman Rutledge", 33, True)
 ]
 
-some_user = next(filter(lambda u: u.id == "1", user_list))
+some_user = [u for u in user_list if u.id == "1"][0]
 print(some_user)
 
-some_user2 = [u for u in user_list if u.id == "1"][0]
+some_user2 = next(filter(lambda u: u.id == "1", user_list))
 print(some_user2)
+
+some_user3 = list(filter(lambda u: u.locked, user_list))
+print(some_user3)
 
 
 # 转换为元组
