@@ -27,62 +27,65 @@ print(some_names3)  # 输出结果: ['Marwah Grant', 'Keiron Partridge']
 
 # 获取集合长度
 list_len = len(some_list)
-print("List length: ", list_len)
+print("length:", list_len)
 
 
 # 追加元素
 some_list.append("Archibald Hills")
-print("List append: ", some_list)
+print("append:", some_list)
 
 
 # 追加集合
 some_list.extend(["Bertie Mooney", "Abdul Hobbs"])
-print("List extend: ", some_list)
+print("extend:", some_list)
 
 
 # 在指定索引处添加元素
 some_list.insert(0, "Brandi Preece")
-print("List insert: ", some_list)
+print("insert:", some_list)
 
 
 # 移除元素
 some_list.remove("Archibald Hills")
-print("List remove: ", some_list)
+print("remove:", some_list)
 
 
 # 移除指定索引处的元素
 del some_list[-1]
-print("List del: ", some_list)
-some_list.pop(-1)
-print("List pop: ", some_list)
+print("del:", some_list)
+
+
+# 移除并返回指定索引处的元素
+pop = some_list.pop(-1)
+print("pop:", pop, "original list:", some_list)
 
 
 # 获取元素的索引
 index = some_list.index("Damien Kane")
-print("List index: ", index)
+print("index:", index)
 
 
 # 反转集合
 some_list.reverse()
-print("List reverse: ", some_list)
-print("List reverse: ", some_list[::-1])
+print("reverse: ", some_list)
+print("reverse: ", some_list[::-1])
 
 
 # 排序
 some_list.sort()
-print("List sort: ", some_list)
+print("sort:", some_list)
 some_list.sort(reverse=True)
-print("List sort(desc): ", some_list)
+print("sort(desc):", some_list)
 
 
 # 统计元素出现的次数
 some_names4 = [1, 1, 1, 2, 3]
-print("List count: ", some_names4.count(1))
+print("count:", some_names4.count(1))
 
 
 # 判断元素是否存在
 exist = "Damien Kane" in some_list
-print("Lint in: ", exist)
+print("in:", exist)
 
 
 # 判断两个集合是否相等
@@ -90,38 +93,38 @@ listA = [1, 2, 3, 4]
 listB = [1, 2, 3, 4]
 
 result = listA == listB
-print("List equals: ", result)
+print("equals:", result)
 
 import operator
 operator.eq(listA, listB)
-print("List operator.eq: ", result)
+print("operator.eq:", result)
 
 
 # 判断集合 A 是否包含集合 B 的所有元素
 listA = [1, 2, 3, 4]
 listB = [1, 2, 3]
 result = all(item in listA for item in listB)
-print("List all: ", result)
+print("all:", result)
 
 
 # 判断集合 A 是否包含集合 B 的元素
 listA = [1, 2, 3, 4]
 listB = [4, 5, 6]
 result = any(item in listA for item in listB)
-print("List any: ", result)
+print("any:", result)
 
 
 # 取最大值
 digit_list = [2, 54, 12, 45, 31, 6]
-print("List max: ", max(digit_list))
+print("max:", max(digit_list))
 
 
 # 取最小值
-print("List min: ", min(digit_list))
+print("min:", min(digit_list))
 
 
 # 求和
-print("List sum: ", sum(digit_list))
+print("sum:", sum(digit_list))
 
 
 # 浅克隆
