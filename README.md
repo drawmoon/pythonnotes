@@ -1,4 +1,4 @@
-# Hey Python
+# Hey Python :wave:
 
 ## 模块代理
 
