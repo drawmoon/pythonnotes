@@ -1,12 +1,14 @@
 from typing import Dict
 
+
 some_dict = {}
+
 some_dict["a"] = 1
 some_dict["b"] = 2
 
 print(some_dict)
-print(some_dict["a"])  # 如果 key 不存在，则报错
-print(some_dict.get("a"))  # 如果 key 不存在，则返回 None
+print(some_dict["a"]) # 如果 key 不存在，则报错
+print(some_dict.get("a")) # 如果 key 不存在，则返回 None
 [print(p) for p in some_dict]
 
 some_dict2 = {
