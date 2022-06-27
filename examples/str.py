@@ -5,6 +5,9 @@ print(some_name[-1])  # r
 print(some_name[0:4])  # Nafi
 print(some_name[0:4:2])  # Nf
 
+# 反转字符串
+print(some_name[::-1]) # remmulP asifaN
+
 # 判断是否为空字符串
 print(some_name.isspace())
 
